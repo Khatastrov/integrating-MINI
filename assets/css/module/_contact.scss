@@ -1,0 +1,104 @@
+.contact-article {
+    @include flexbox((display: flex,
+            flex-flow: row wrap));
+    justify-content  : space-between;
+}
+
+.contact-form {
+    width: 620px;
+
+    .article-title {
+        margin-bottom: 20px;
+    }
+
+    .input-container {
+        position: relative;
+
+        input {
+            display: block;
+            margin : 10px 0;
+            padding: 16px 20px;
+            width  : 100%;
+            border : 2px solid $light;
+
+            &:focus,
+            &:valid {
+                outline     : none;
+                border-color: $primary;
+            }
+
+            &:focus+i,
+            &:valid+i {
+                color: $primary;
+            }
+        }
+
+        textarea {
+            @extend input;
+            height: 150px;
+            resize: none;
+        }
+
+        i {
+            position: absolute;
+            top     : 16px;
+            right   : 20px;
+        }
+    }
+
+    .btn {
+        margin-top : 20px;
+        padding    : 13px 40px;
+        font-weight: 600;
+    }
+}
+
+.contact-infos {
+    width: 500px;
+
+    ul {
+        padding        : unset;
+        list-style-type: none;
+        font-weight    : 600;
+        color          : #000;
+        li {
+            margin-bottom: 15px;
+            padding-left: 60px;
+            line-height: 0;
+        }
+
+        .icon {
+            display: inline-block;
+            margin: 0 15px 0 -60px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align   : center;
+            border       : 2px solid $primary;
+            border-radius: 50%;
+        }
+    }
+}
+
+.map {
+    @include flexbox((display: flex));
+    justify-content          : center;
+}
+
+
+// Medium devices (tablets, low-res screens, less than 1200px)
+@media screen and (max-width: $screen-m) {
+    .contact-article {
+        justify-content: center;
+
+        .contact-form {
+            width     : 80%;
+            text-align: center;
+        }
+
+        .contact-infos {
+            margin-top: 90px;
+            width     : 80%;
+        }
+    }
+}

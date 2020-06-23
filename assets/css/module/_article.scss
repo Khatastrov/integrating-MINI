@@ -1,0 +1,359 @@
+.article-title {
+    margin        : 0;
+    font-size     : 1.25rem;
+    line-height   : 1.25;
+    text-transform: uppercase;
+    color         : #000;
+}
+
+.article-icon {
+    width        : 125px;
+    height       : 125px;
+    line-height  : 125px;
+    text-align   : center;
+    border       : 2px solid $primary;
+    border-radius: 50%;
+}
+
+.article-illustration {
+    display  : block;
+    max-width: 100%;
+    width    : auto;
+    height   : auto;
+}
+
+
+/* STORY */
+.story-article {
+    @include flexbox ((display: flex,
+            flex-flow: row wrap));
+    justify-content  : space-between;
+    align-items      : flex-start;
+
+    .article-text {
+        margin-left: -30px;
+        max-width  : 500px;
+    }
+
+    .article-emphasis {
+        font-size: 1.25rem;
+        color    : $emphasis;
+    }
+}
+
+
+/* SKILLS */
+.skills-article {
+    @include flexbox ((display: flex,
+            flex-flow: row nowrap));
+    justify-content  : space-between;
+
+    .article-text {
+        min-width: 555px;
+
+        .skills {
+            @include flexbox ((display: flex,
+                    flex-flow: row nowrap));
+            justify-content  : space-between;
+
+            .text {
+                max-width: 400px;
+            }
+        }
+    }
+
+}
+
+
+/* TEAM */
+.team-article {
+    @include flexbox((display: flex,
+            flex-flow: row wrap,
+        ));
+    justify-content: space-evenly;
+}
+// see '_card.scss"
+
+
+/* SERVICES */
+.services-article {
+    @include flexbox ((display: flex,
+            flex-flow: row nowrap));
+    justify-content  : space-between;
+
+    .service {
+        width     : 30%;
+        text-align: center;
+
+        &-title {
+            font-size     : 1.25rem;
+            font-weight   : 700;
+            text-transform: uppercase;
+            color         : #000;
+        }
+
+        i {
+            padding      : 35px;
+            font-size    : 2rem;
+            color        : #000;
+            border       : 2px solid $primary;
+            border-radius: 50%;
+        }
+
+        &:hover i {
+            @include transition-duration;
+            color           : #fff;
+            background-color: $primary;
+        }
+    }
+}
+
+
+/* PRICING */
+.plans-article {
+    @include flexbox ((display: flex,
+            flex-flow: row nowrap));
+    justify-content  : space-between;
+
+    .article-text {
+        width: 310px;
+    }
+
+    .article-title {
+        margin-top: 30px;
+    }
+
+    .plans-tables {
+        @include flexbox ((display: flex,
+                flex-flow: column wrap));
+        height           : 460px;
+        width            : 747px;
+        text-align       : center;
+    }
+}
+// see '_table.scss'
+
+
+/* ARTWORK */
+.artwork-article {
+    text-align: center;
+}
+// see '-carousel.scss'
+
+
+/* GALLERY */
+// see '_gallery.scss'
+
+
+/* BLOG */
+.blog-article {
+    @include flexbox((display: flex,
+            flex-flow: row wrap,
+        ));
+    justify-content: space-between;
+
+    .blog-post {
+        position     : relative;
+        margin-bottom: 30px;
+        width        : 555px;
+        min-height   : 505px;
+
+        &-photo {
+            display   : block;
+            max-width : 555px;
+            max-height: 300px;
+            width     : auto;
+            height    : auto;
+        }
+
+        &-extract {
+            position        : absolute;
+            right           : 0;
+            bottom          : 0;
+            overflow        : hidden;
+            padding         : 30px 20px 10px;
+            width           : 440px;
+            background-color: #fff;
+
+            &-title {
+                margin        : 0;
+                font-size     : 1.2rem;
+                font-weight   : 700;
+                text-transform: uppercase;
+                color         : #000;
+            }
+
+            &-btn {
+                padding    : 10px 25px;
+                font-size  : 0.7rem;
+                font-weight: 700;
+            }
+        }
+
+        &-infos {
+            position  : relative;
+            display   : inline-block;
+            width     : 115px;
+            text-align: right;
+        }
+
+        &-icon {
+            position        : absolute;
+            top             : -44px;
+            right           : 0;
+            display         : inline-block;
+            height          : 44px;
+            width           : 44px;
+            font-size       : 1.4rem;
+            text-align      : center;
+            color           : #fff;
+            background-color: $primary;
+        }
+    }
+}
+
+
+// Medium devices (tablets, low-res screens, less than 1200px)
+@media screen and (max-width: $screen-m) {
+    .article-title {
+        text-align: center;
+    }
+
+    .article-text {
+        text-align: justify;
+    }
+
+    .story-article {
+        @include flexbox ((display: flex,
+                flex-flow: column nowrap));
+        align-items      : center;
+
+        .article-text {
+            margin-left: unset;
+            margin-top : 20px;
+            max-width  : 80%;
+        }
+    }
+
+    .skills-article {
+        @include flexbox ((display: flex,
+                flex-flow: column nowrap));
+        align-items      : center;
+
+        .article-text {
+            margin-top: 20px;
+            max-width : 80%;
+        }
+    }
+
+    .plans-article {
+        @include flexbox ((display: flex,
+                flex-flow: column nowrap));
+        justify-content  : space-between;
+        align-items      : center;
+
+        .article-text {
+            @include flexbox ((display: flex,
+                    flex-flow: column nowrap));
+            align-items      : center;
+            width            : 80%;
+        }
+
+        .plans-tables {
+            margin-top: 20px;
+        }
+    }
+
+    .blog-article {
+        justify-content: center;
+    }
+}
+
+
+// Small devices (landscape phones, less than 799px)
+@media screen and (max-width: $screen-s) {
+    .skills-article {
+        .article-text {
+            min-width: unset;
+            width    : 80%;
+
+            .skills {
+                @include flexbox ((display: flex,
+                        flex-flow: column nowrap));
+                align-items      : center;
+
+                .article-title {
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+
+    .services-article {
+        @include flexbox ((display: flex,
+                flex-flow: column nowrap));
+        justify-content  : center;
+        align-items      : center;
+
+        .service {
+            margin-top: 20px;
+            width     : 80%;
+
+            p {
+                text-align: justify;
+            }
+        }
+    }
+
+    .plans-article {
+        .plans-tables {
+            @include flexbox ((display: flex,
+                    flex-flow: column nowrap));
+            height           : auto;
+            width            : 80%;
+            max-width        : 300px;
+
+            .table {
+                margin-bottom: 10px;
+            }
+
+            .gold-plan {
+                order: 1;
+            }
+
+            .silver-plan {
+                order: 2;
+            }
+
+            .basic-plan {
+                order: 3;
+            }
+        }
+    }
+
+    .blog-article {
+        .blog-post {
+            width     : 80%;
+            max-width : 555px;
+            min-height: initial;
+
+            &-photo {
+                width: 100%;
+            }
+
+            &-extract {
+                position  : initial;
+                width     : 100%;
+                text-align: center;
+
+                &-text {
+                    text-align: justify;
+                }
+            }
+
+            &-infos {
+                display: none;
+            }
+        }
+    }
+}

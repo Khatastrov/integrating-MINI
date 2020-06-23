@@ -1,0 +1,20 @@
+.container {
+    position: relative;
+    z-index : 5;
+    margin  : 0 auto;
+    width   : $container-l;
+}
+
+// Medium devices (tablets, low-res screens, less than 1200px)
+@media screen and (max-width: $screen-m) {
+    .container {
+        width: $container-m;
+    }
+}
+
+// Small devices (landscape phones, less than 799px)
+@media screen and (max-width: $screen-s) {
+    .container {
+        width: $container-s;
+    }
+}

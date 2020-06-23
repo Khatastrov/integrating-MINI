@@ -1,0 +1,63 @@
+.section {
+    position        : relative;
+    margin          : 0;
+    padding         : 100px 0;
+    background-color: #fff;
+
+    &:before,
+    &:after {
+        content         : '';
+        z-index         : 4;
+        display         : block;
+        position        : absolute;
+        top             : 0;
+        left            : 0;
+        bottom          : 0;
+        right           : 0;
+        background-color: #fff;
+        @include transform-origin(0, 0);
+        @include skewY(-3deg);
+    }
+
+    &:after {
+        @include transform-origin(100%, 0);
+        background-color: #fff;
+    }
+
+    &:last-child {
+        padding: unset;
+
+        &:after {
+            z-index: -1;
+            display: none;
+        }
+    }
+}
+
+.section-description {
+    display       : flex;
+    margin-bottom : 120px;
+    align-items   : center;
+    text-transform: uppercase;
+    ;
+}
+
+.section-title {
+    display       : inline-block;
+    margin-right  : 20px;
+    padding       : 10px 20px;
+    font-size     : 1.87rem;
+    font-weight   : 700;
+    line-height   : 1.25;
+    text-transform: uppercase;
+    color         : #000;
+    border-right  : 4px solid;
+    border-color  : $primary;
+}
+
+// Small devices (landscape phones, less than 799px)
+@media screen and (max-width: $screen-s) {
+    .section-title {
+        padding-left: 10px;
+    }
+}

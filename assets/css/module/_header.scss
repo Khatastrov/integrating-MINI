@@ -1,0 +1,138 @@
+.header {
+    height          : 100vh;
+    text-transform  : uppercase;
+    color           : #fff;
+    background-color: #324255;
+    background      : image-url("css/header-bg.jpg") center top fixed;
+    @include background-size(cover);
+}
+
+/* MENU */
+.menu {
+    @include flexbox((display: flex,
+            flex-flow: row nowrap,
+        ));
+    justify-content: space-between;
+    align-items    : center;
+    padding-top    : 10vh;
+    font-weight    : 600;
+    font-size      : 1.125rem;
+
+    &-items {
+        @include flexbox((display: flex,
+                flex-flow: row nowrap,
+            ));
+        list-style-type: none;
+
+        .menu-item {
+            &:before {
+                content: "//";
+                display: inline-block;
+                padding: 0 37px;
+            }
+
+            &:first-child:before {
+                display: none;
+            }
+
+            a:hover,
+            a.is-active {
+                @include transition-duration;
+                color: #000;
+            }
+        }
+    }
+
+    .header-logo {
+        display: block;
+    }
+
+    &-burger {
+        display: none;
+        width  : 50px;
+        height : 80px;
+    }
+}
+
+/* BASELINE */
+.header-baseline {
+    @include flexbox((display: flex,
+            flex-flow: column nowrap,
+        ));
+    justify-content: center;
+    align-items    : center;
+    height         : calc(90vh - 200px);
+    text-align     : center;
+}
+
+.header-baseline-l {
+    font-size  : 2.5rem;
+    font-weight: 300;
+    line-height: 50px;
+}
+
+.header-baseline-l-strong {
+    font-size  : 3.12rem;
+    font-weight: 700;
+}
+
+.header-btn {
+    margin-top : 80px;
+    font-weight: 600;
+    color      : #fff;
+    border     : 2px solid #fff;
+
+    &:hover {
+        color       : #000;
+        border-color: $primary;
+    }
+}
+
+
+// Medium devices (tablets, low-res screens, less than 1200px)
+@media screen and (max-width: $screen-m) {
+
+    /* menu */
+    .menu {
+        padding-top: 50px;
+
+        .menu-item {
+            margin-left: 25px;
+
+            &:before {
+                display: none;
+            }
+        }
+
+        .header-logo img {
+            width : 120px;
+            height: 120px;
+        }
+    }
+
+    /* baseline */
+    .header-baseline {
+        &-l-strong {
+            font-size: 2.5rem;
+        }
+    }
+}
+
+
+// Small devices (landscape phones, less than 799px)
+@media screen and (max-width: $screen-s) {
+    .menu {
+        padding: 20px;
+
+        .menu-items {
+            display: none;
+        }
+
+        &-burger {
+            cursor    : pointer;
+            display   : block;
+            background: image-url("css/burger-menu.png") center center no-repeat;
+            @include background-size(contain);
+        }
+    }
+}

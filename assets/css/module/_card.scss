@@ -1,0 +1,83 @@
+.card {
+    @include flexbox((display: flex,
+            flex-flow: column wrap,
+        ));
+    justify-content: flex-start;
+    align-items    : center;
+    margin         : 20px 0 0;
+    padding        : 10px 20px;
+    max-width      : 268px;
+    min-height     : 470px;
+    text-align     : center;
+
+    &:hover {
+        @include transition-duration;
+        @include box-shadow(0px -4px 0px 0px $primary);
+        background-color: $light;
+    }
+
+    &-img {
+        height       : 180px;
+        width        : 180px;
+        border       : 5px solid $light;
+        border-radius: 50%;
+        @include box-shadow(0px 0px 0px 1px darken($light, 10));
+    }
+
+    &-title {
+        margin        : 30px 0 5px;
+        padding       : 0;
+        font-size     : 1.25rem;
+        line-height   : 1;
+        font-weight   : bold;
+        text-transform: uppercase;
+        color         : #000;
+    }
+
+    &-subtitle {
+        position     : relative;
+        margin-bottom: 32px;
+        padding      : 0;
+        font-size    : 0.9rem;
+        line-height  : 1;
+        color        : darken($light, 30);
+
+        &:after {
+            content         : '';
+            display         : block;
+            position        : absolute;
+            left            : 50%;
+            bottom          : -16px;
+            margin-left     : -10px;
+            width           : 20px;
+            height          : 4px;
+            background-color: darken($light, 20);
+        }
+
+    }
+
+    &-footer {
+        font-size     : 1.25rem;
+        letter-spacing: 0.5rem;
+        color         : darken($light, 30);
+
+        i:hover {
+            @include transition-duration;
+            color: $primary;
+        }
+    }
+
+    &:hover &-subtitle:after {
+        background-color: $emphasis;
+    }
+}
+
+
+// Medium devices (tablets, low-res screens, less than 1200px)
+@media screen and (max-width: $screen-m) {
+    .card {
+        &-footer {
+            letter-spacing: 0.7rem;
+        }
+    }
+}

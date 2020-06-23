@@ -1,0 +1,61 @@
+footer .section {
+    padding: unset;
+}
+
+.footer {
+    @include flexbox((display: flex,
+            flex-flow: row wrap,
+        ));
+    justify-content: space-between;
+    align-items    : center;
+    height         : 120px;
+
+    .copyright {
+        display       : inline-block;
+        font-size     : 0.8rem;
+        font-weight   : 600;
+        text-transform: uppercase;
+        color         : #000;
+    }
+
+    .soc-net {
+        display       : inline-block;
+        letter-spacing: 10px;
+        color         : #000;
+
+        a:hover {
+            color: $primary;
+        }
+    }
+}
+
+.disclaimer {
+    font-size       : 0.9rem;
+    font-weight     : 300;
+    text-align      : center;
+    color           : $light;
+    background-color: #000;
+
+    p {
+        margin: 0;
+    }
+
+    a {
+        font-weight: 400;
+        color      : $primary
+    }
+}
+
+@media screen and (max-width: $screen-s) {
+    .footer {
+        justify-content: center;
+
+        .soc-net {
+            order: 1;
+        }
+
+        .copyright {
+            order: 2;
+        }
+    }
+}

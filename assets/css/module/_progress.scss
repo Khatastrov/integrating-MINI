@@ -1,0 +1,26 @@
+.progress-title {
+    margin        : 35px 0 13px;
+    text-transform: uppercase;
+
+    &:first-child {
+        margin-top: 30px;
+    }
+
+    strong {
+        color: #000;
+    }
+}
+
+.progress-bar {
+    position        : relative;
+    height          : 10px;
+    background-color: $light;
+
+    span {
+        position        : absolute;
+        top             : 0;
+        left            : 0;
+        bottom          : 0;
+        background-color: $primary;
+    }
+}

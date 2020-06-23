@@ -1,0 +1,17 @@
+.btn {
+    display         : inline-block;
+    padding         : 16px 38px;
+    font-size       : 0.9rem;
+    line-height     : 1;
+    text-transform  : uppercase;
+    color           : #000;
+    background-color: transparent;
+    background-color: rgba($primary, 0);
+    border          : 2px solid $primary;
+
+    &:hover {
+        @include transition-duration;
+        color           : #fff;
+        background-color: $primary;
+    }
+}
